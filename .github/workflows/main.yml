@@ -12,7 +12,7 @@ jobs:
     - name: Publish to Astronomer.io
       uses: elgohr/Publish-Docker-Github-Action@2.6
       with:
-        name: development/airflow:ci-${{ github.sha }}
+        name: asteroidic-phase-3968/airflow:ci-${{ github.sha }}
         username: _
         password: 49bdc9c63ccf20c6be9c33390cc1b219
         registry: registry.gcp0001.us-east4.astronomer.io
