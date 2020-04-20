@@ -11,6 +11,5 @@ def print_hello():
 
 with DAG('hello_world_dag', description='First DAG', schedule_interval='*/10 * * * *', start_date=datetime(2018, 11, 1), catchup=False) as dag:
 	dummy_task 	= DummyOperator(task_id='dummy_task', retries=3)
-	python_task	= PythonOperator(task_id='python_task', python_callable=print_hello)
-
+	
 	dummy_task >> python_task
