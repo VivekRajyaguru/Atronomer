@@ -18,7 +18,7 @@ dag = DAG('s3_dag_test', default_args=default_args, schedule_interval= '@once')
 
 t1 = BashOperator(
     task_id='bash_test',
-    bash_command='echo "hello, it should work" > s3_conn_test.txt',
+    bash_command='echo "hello, it should work" > s3_conn_test.txt  && cat s3_conn_test.txt',
     dag=dag)
 
 sensor = S3KeySensor(
@@ -26,7 +26,7 @@ sensor = S3KeySensor(
     bucket_key='vivek-etl*',
     wildcard_match=True,
     bucket_name='vivek-etl-bucket',
-    s3_conn_id='my_conn_S3',
+    aws_conn_id='aws_default',
     timeout=18*60*60,
     poke_interval=120,
     dag=dag)
