@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Publish to Astronomer.io
-      uses: elgohr/Publish-Docker-Github-Action@2.6
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: asteroidic-phase-3968/airflow:ci-${{ github.sha }}
         username: _
